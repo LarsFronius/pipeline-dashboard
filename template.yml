@@ -60,8 +60,10 @@ Resources:
     Properties:
       Description: Build CloudWatch Trend dashboard from CloudWatch metrics
       Handler: index.generateDashboardTrend
-      Runtime: nodejs8.10
-      CodeUri: .
+      Runtime: nodejs16.x
+      CodeUri:
+        Bucket: !Ref BucketName
+        Key: !Ref CodeKey
       Timeout: 60
       Events:
         DashboardEventRule:
